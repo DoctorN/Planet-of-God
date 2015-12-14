@@ -303,7 +303,10 @@ public class Planet {
 	
 	public void update(GameContainer gc, int delta) {
 		
-		if ((new Random()).nextInt(100 / delta) == 0 && cometsEnabled) spawnComet(gc);
+		int bound = 100 / delta;
+		if (bound <= 0) bound = 1;
+		
+		if ((new Random()).nextInt(bound) == 0 && cometsEnabled) spawnComet(gc);
 		
 		for (Comet comet : comets) comet.update(gc, delta);
 		for (int i = 0; i < comets.size(); i++) {
@@ -359,8 +362,8 @@ public class Planet {
 		
 		if (!displayMode) {
 			
-			if (temperature > 0) this.incrementTemperature((int) Math.round(delta * 4 * (temperature - 10) / 1990f), false);
-			if (volcanoesEnabled) this.incrementCO2((int) Math.round(delta * 1.1f), true);
+			if (temperature > 0) this.incrementTemperature((int) Math.round(delta *6 * (temperature) / 2000f), false);
+			if (volcanoesEnabled) this.incrementCO2((int) Math.round(delta * 3f), true);
 			if (atmosphereLevel() < 100) this.incrementH2OVolume(delta / 5, false);
 			else incrementOcean(delta * (int) Math.round(temperature / 300), false);
 			if (temperature > 100) {
@@ -378,6 +381,9 @@ public class Planet {
 				
 				this.incrementCO2((int) Math.round(delta * trees / 100), false);
 				this.incrementO2((int) Math.round(delta * trees / 100), true);
+				
+				this.incrementH2OVolume((int) Math.round(delta * this.vegPercentage / 100), false);
+				this.incrementH2OVolume((int) Math.round(delta * trees / 100), false);
 				
 				if (this.vegPercentage > 50) {
 					

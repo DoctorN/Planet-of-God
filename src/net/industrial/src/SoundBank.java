@@ -9,10 +9,10 @@ public class SoundBank {
 	
 	public SoundBank() throws SlickException {
 		
-		COMET = new Sound("/res/sound/comet.ogg");
-		RAIN = new Sound("/res/sound/rain.ogg");
-		SELECT = new Sound("/res/sound/select.ogg");
-		THUNDER = new Sound("/res/sound/thunder.ogg");
+		COMET = new Sound("res/comet.ogg");
+		RAIN = new Sound("res/rain.ogg");
+		SELECT = new Sound("res/select.ogg");
+		THUNDER = new Sound("res/thunder.ogg");
 		
 	}
 	

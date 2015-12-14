@@ -33,6 +33,7 @@ public class Main extends StateBasedGame {
 		app.setAlwaysRender(true);
 		app.setVSync(true);
 		app.setMouseGrabbed(true);
+		app.setTargetFrameRate(60);
 		app.start();
 		
 	}

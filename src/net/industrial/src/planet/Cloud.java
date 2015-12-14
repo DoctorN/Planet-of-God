@@ -151,7 +151,7 @@ public class Cloud {
 					
 				}
 				
-				planet.incrementOcean(delta / 20, true);
+				planet.incrementOcean(delta / 10, true);
 				planet.incrementCO2((int) Math.round(delta / 25), false);
 				
 			} 
