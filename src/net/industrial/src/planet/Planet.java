@@ -29,7 +29,7 @@ public class Planet {
 	private boolean shaking = false, cometsEnabled = false, volcanoesEnabled = false, life = false, raining = false, waterStarted = false, atmosStarted = false;
 	private float shakeTime = 0f, cool = 0f, lifeStart = 0, atmosStart = 0, waterStart = 0;
 	
-	private int trees = 0, fish = 0, birds = 0, sheep = 0, wolves = 0;
+	private int trees = 0;
 	
 	public static int RADIUS = 300;
 	public static float CENTERX, CENTERY;
@@ -373,17 +373,17 @@ public class Planet {
 				
 			}
 			
-			if (life && temperature >= 20 && temperature <= 45 && h2oVolume > 100 && this.co2Volume > 0) {
+			if (life && temperature >= 20 && temperature <= 45 && h2oVolume > 0 && this.co2Volume > 0) {
 				
 				this.incrementVeg(delta, true);
-				this.incrementCO2((int) Math.round(delta * this.vegPercentage / 100), false);
-				this.incrementO2((int) Math.round(delta * this.vegPercentage / 100), true);
+				this.incrementCO2((int) Math.round(delta * this.vegPercentage / 200), false);
+				this.incrementO2((int) Math.round(delta * this.vegPercentage / 200), true);
 				
-				this.incrementCO2((int) Math.round(delta * trees / 100), false);
-				this.incrementO2((int) Math.round(delta * trees / 100), true);
+				this.incrementCO2((int) Math.round(delta * trees / 200), false);
+				this.incrementO2((int) Math.round(delta * trees / 200), true);
 				
-				this.incrementH2OVolume((int) Math.round(delta * this.vegPercentage / 100), false);
-				this.incrementH2OVolume((int) Math.round(delta * trees / 100), false);
+				this.incrementH2OVolume((int) Math.round(delta * this.vegPercentage / 300), false);
+				this.incrementH2OVolume((int) Math.round(delta * trees / 300), false);
 				
 				if (this.vegPercentage > 50) {
 					
@@ -517,10 +517,6 @@ public class Planet {
 			
 			Game.FONT.drawString(CENTERX - 75, lifeStart + 22, "%VEG: " + (int) Math.round(vegPercentage), new Color(1f, 1f, 1f, lifeStart / 50));
 			Game.FONT.drawString(CENTERX - 75, lifeStart + 44, "TREES: " + trees, new Color(1f, 1f, 1f, lifeStart / 50));
-			Game.FONT.drawString(CENTERX - 75, lifeStart + 66, "FISH: " + fish, new Color(1f, 1f, 1f, lifeStart / 50));
-			Game.FONT.drawString(CENTERX - 75, lifeStart + 88, "BIRDS: " + birds, new Color(1f, 1f, 1f, lifeStart / 50));
-			Game.FONT.drawString(CENTERX - 75, lifeStart + 110, "SHEEP: " + sheep, new Color(1f, 1f, 1f, lifeStart / 50));
-			Game.FONT.drawString(CENTERX - 75, lifeStart + 134, "WOLVES: " + wolves, new Color(1f, 1f, 1f, lifeStart / 50));
 			
 		}
 		
