@@ -559,7 +559,7 @@ public class Planet {
 			
 		}
 		
-		SoundBank.THUNDER.play();
+		if (!SoundBank.THUNDER.playing()) SoundBank.THUNDER.play();
 		
 	}
 

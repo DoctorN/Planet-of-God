@@ -11,6 +11,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.Music;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.SpriteSheetFont;
@@ -62,6 +63,12 @@ public class Menu extends BasicGameState {
 		
 		credits = gc.getWidth();
 		
+		Music music = new Music("res/music.ogg");
+		music.loop();
+		
+		gc.setMusicVolume(0.4f);
+		gc.setSoundVolume(0.5f);
+		
 	}
 
 	@Override
@@ -110,7 +117,7 @@ public class Menu extends BasicGameState {
 		
 		credits -= 0.1f * delta;
 		
-		if (credits < CREDITS.length() * - 18) credits = gc.getWidth();
+		if (credits < CREDITS.length() * - 20) credits = gc.getWidth();
 		
 		if (introCool < 700f && !loaded) {
 			

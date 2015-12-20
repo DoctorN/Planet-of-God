@@ -106,8 +106,14 @@ public class Game extends BasicGameState {
 		for (Star s : stars) s.update(gc, delta);
 		planet.update(gc, delta);
 		
-		sbg.addState(new Game(this.getID() + 1));
-		if (gc.getInput().isKeyPressed(Input.KEY_R)) sbg.enterState(id + 1, new FadeOutTransition(), new FadeInTransition());
+		if (gc.getInput().isKeyPressed(Input.KEY_R)) {
+			
+			Game game = new Game(id + 1);
+			game.init(gc, sbg);
+			sbg.addState(game);
+			sbg.enterState(getID() + 1, new FadeOutTransition(), new FadeInTransition());
+		
+		}
 		
 	}
 	

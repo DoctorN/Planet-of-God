@@ -9,7 +9,7 @@ public class Main extends StateBasedGame {
 
 	public Main() {
 		
-		super("Planet of God");
+		super("Planet God");
 		
 	}
 

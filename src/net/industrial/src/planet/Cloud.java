@@ -113,7 +113,7 @@ public class Cloud {
 			
 			if (raining && alpha >= 0.9f) {
 				
-				if (random.nextInt(5) == 0) {
+				if (random.nextInt(5) == 0 && !isDissipating()) {
 						
 					int translate = -50 + random.nextInt(100);
 					
@@ -147,7 +147,7 @@ public class Cloud {
 						planet.planet.contains(droplets.get(i).getCenterX(), droplets.get(i).getCenterY())) {
 					
 					droplets.remove(i);
-					SoundBank.RAIN.play(1f, 0.5f);
+					if (random.nextInt(5) == 0) SoundBank.RAIN.play(1f, 0.5f);
 					
 				}
 				
@@ -209,7 +209,6 @@ public class Cloud {
 	public void dissipate() {
 		
 		disappating = true;
-		raining = false;
 		
 	}
 	
